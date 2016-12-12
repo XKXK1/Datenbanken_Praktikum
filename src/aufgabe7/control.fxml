@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Desktop/datenbank-2.jpg" />
+            <Image url="@../../lib/datenbank-2.jpg" />
          </image>
       </ImageView>
       <HBox layoutX="18.0" layoutY="285.0" prefHeight="25.0" prefWidth="565.0">

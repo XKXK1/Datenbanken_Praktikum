@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe7.Controller">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/datenbank-2.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="18.0" layoutY="285.0" prefHeight="25.0" prefWidth="565.0">
+         <children>
+            <TextField fx:id="end1" promptText="InventarNR" />
+            <TextField fx:id="end2" promptText="Modelbez." />
+            <TextField fx:id="end3" promptText="AusleiherName" />
+            <TextField fx:id="end4" promptText="Ausleiher_ID" />
+            <TextField fx:id="end5" promptText="AnschaffungsDatum" />
+         </children>
+      </HBox>
+      <Button fx:id="endgeraetHinzufuegen" layoutX="249.0" layoutY="334.0" mnemonicParsing="false" onAction="#endgeraetHinzufuegen" style="-fx-background-color: transparent; -fx-border-color: white;" text="HINZUFUEGEN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fx:id="textMid" fill="WHITE" layoutX="18.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+      <Button layoutX="101.0" layoutY="110.0" mnemonicParsing="false" onAction="#showAllPersonsButtonClicked" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="SHOW RESULT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="381.0" layoutY="110.0" mnemonicParsing="false" onAction="#showPersonSolarButtonClicked" prefHeight="25.0" prefWidth="124.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="SHOW RESULT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fill="WHITE" layoutX="43.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALLE PERSONEN DER DATENBANK" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="315.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALLE PERSONEN IN OE SOLARENERGIE" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="209.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENDGERAET HINZUFUEGEN" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="492.0" layoutY="14.0" mnemonicParsing="false" onAction="#disconnectButtonClicked" style="-fx-background-color: transparent; -fx-border-color: white;" text="DISCONNECT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+   </children>
+</Pane>

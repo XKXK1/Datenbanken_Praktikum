@@ -18,7 +18,6 @@ public class DatenbankGui extends Application {
 		primaryStage.setTitle("Datenbank TechnikVerleih");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
 	}
 
 	public static void main(String[] args) {

@@ -113,10 +113,9 @@ public class Controller {
 				e.printStackTrace();
 			}
 			Scene scene = new Scene(root, 600, 400);
-			stage.setTitle("Datenbank TechnikVerleih");
-			stage.setScene(scene);
-
-			stage.show();
+			Stage appStage = (Stage) end1.getScene().getWindow();
+			appStage.setTitle("Datenbank TechnikVerleih");
+			appStage.setScene(scene);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

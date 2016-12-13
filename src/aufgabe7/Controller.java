@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -29,7 +32,7 @@ public class Controller {
 	TextField usernameText;
 
 	@FXML
-	TextField end1, end2, end3, end4, end5;
+	TextField end1, end2, end3;
 
 	@FXML
 	PasswordField passwordText;
@@ -102,6 +105,18 @@ public class Controller {
 			}
 		}
 	}
+	
+	public void loginButtonPressed(){
+		button1.setStyle("-fx-background-color: white");
+		button1.setTextFill(Color.BLACK);
+		
+	}
+	
+	public void loginButtonReleased(){
+		button1.setStyle("-fx-background-color: transparent");
+		button1.setTextFill(Color.WHITE);
+
+	}
 
 	public void disconnectButtonClicked() {
 		try {
@@ -123,25 +138,20 @@ public class Controller {
 	}
 
 	public void endgeraetHinzufuegen() {
-		if (end1.getText().isEmpty() | end2.getText().isEmpty() | end3.getText().isEmpty() | end4.getText().isEmpty()
-				| end5.getText().isEmpty()) {
+		if (end1.getText().isEmpty() | end2.getText().isEmpty() | end3.getText().isEmpty()) {
 			textMid.setText("*BITTE ALLE FELDER AUSFUELLEN!!!");
 
 		} else {
 
 			int InventarisierungsNummer = Integer.parseInt(end1.getText());
 			String Modellbezeichnung = end2.getText();
-			String AusleiherName = end3.getText();
-			int AusleiherID = Integer.parseInt(end4.getText());
-			String AnschaffungsDatum = end5.getText();
+			String AnschaffungsDatum = end3.getText();
 
 			try {
-				String befehl = "INSERT INTO ENDGERAETE VALUES(?,?,?,?,?)";
+				String befehl = "INSERT INTO ENDGERAETE VALUES(?,?,?)";
 
 				PreparedStatement stmn = db.getSQLConnection().prepareStatement(befehl);
-				stmn.setString(5, AnschaffungsDatum);
-				stmn.setInt(4, AusleiherID);
-				stmn.setString(3, AusleiherName);
+				stmn.setString(3, AnschaffungsDatum);
 				stmn.setString(2, Modellbezeichnung);
 				stmn.setInt(1, InventarisierungsNummer);
 				stmn.execute();
@@ -151,8 +161,6 @@ public class Controller {
 				end1.clear();
 				end2.clear();
 				end3.clear();
-				end4.clear();
-				end5.clear();
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

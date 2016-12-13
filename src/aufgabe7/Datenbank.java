@@ -61,7 +61,7 @@ public class Datenbank {
 			Table table = new Table();
 			Statement myStmt;
 			myStmt = dbConnection.createStatement();
-			ResultSet myRs = myStmt.executeQuery("select * from AUSLEIHER");
+			ResultSet myRs = myStmt.executeQuery("select * from ausleiher");
 			for (int i = 0; i < myRs.getMetaData().getColumnCount(); i++) {
 				table.addColumn(myRs.getMetaData().getColumnLabel(i + 1));
 			}
@@ -74,6 +74,7 @@ public class Datenbank {
 				table.addColumnData(index, myRs.getString(5));
 				table.addColumnData(index, myRs.getString(6));
 				table.addColumnData(index, myRs.getString(7));
+				table.addColumnData(index, myRs.getString(8));
 				index++;
 			}
 			return table;

@@ -15,9 +15,12 @@ public class DatenbankGui extends Application {
 
 		Scene scene = new Scene(root, 600, 400);
 		
+
 		primaryStage.setTitle("Datenbank TechnikVerleih");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.sizeToScene();
+		//primaryStage.setResizable(false);
 	}
 
 	public static void main(String[] args) {

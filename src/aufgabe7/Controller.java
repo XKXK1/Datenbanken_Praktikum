@@ -1,10 +1,8 @@
 package aufgabe7;
 
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
@@ -15,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -26,19 +25,19 @@ public class Controller {
 	private Stage stage = new Stage();
 
 	@FXML
-	Text textMid, fehlerText;
+	Text textMid, fehlerText, textMod;
 
 	@FXML
 	TextField usernameText;
 
 	@FXML
-	TextField end1, end2, end3;
+	TextField end1, end2, end3, mod1, mod2;
 
 	@FXML
 	PasswordField passwordText;
 
 	@FXML
-	Button button1, endgeraetHinzufuegen;
+	Button button1, buttonDisconnect, buttonHinzufuegen,buttonResult1,buttonResult2;
 
 	@FXML
 	TableView<List<String>> table1;
@@ -53,6 +52,11 @@ public class Controller {
 
 	public void showPersonSolarButtonClicked() {
 		Table table = db.showPersonSolarEnergie();
+		changeTable(table);
+	}
+	
+	public void showAllEndgeraeteClicked(){
+		Table table = db.showAllEndgeraete();
 		changeTable(table);
 	}
 
@@ -107,15 +111,13 @@ public class Controller {
 	}
 	
 	public void loginButtonPressed(){
-		button1.setStyle("-fx-background-color: white");
-		button1.setTextFill(Color.BLACK);
-		
+		button1.setStyle("-fx-border-color: black" + ";-fx-background-color: white");
+		button1.setTextFill(Color.BLACK);		
 	}
 	
 	public void loginButtonReleased(){
-		button1.setStyle("-fx-background-color: transparent");
+		button1.setStyle("-fx-border-color: white" + ";-fx-background-color: transparent");
 		button1.setTextFill(Color.WHITE);
-
 	}
 
 	public void disconnectButtonClicked() {
@@ -137,35 +139,62 @@ public class Controller {
 		}
 	}
 
+
 	public void endgeraetHinzufuegen() {
 		if (end1.getText().isEmpty() | end2.getText().isEmpty() | end3.getText().isEmpty()) {
 			textMid.setText("*BITTE ALLE FELDER AUSFUELLEN!!!");
 
-		} else {
-
+		} else {			
 			int InventarisierungsNummer = Integer.parseInt(end1.getText());
 			String Modellbezeichnung = end2.getText();
 			String AnschaffungsDatum = end3.getText();
+			
+			if (!db.bezeichnerExist(Modellbezeichnung)){	
+				
+				try {
+					root = FXMLLoader.load(getClass().getResource("modellbez.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Scene scene = new Scene(root, 600, 230);
+				stage.setTitle("Datenbank TechnikVerleih - Modellbezeichnung Hinzufuegen");
+				stage.setScene(scene);
+				stage.show();	
+				HBox box1 = (HBox) root.getChildren().get(0);
+				TextField textField1 = (TextField) box1.getChildren().get(0);
+				textField1.setText(end2.getText());
+			} else {
+			
+			db.endgeraetAdd(InventarisierungsNummer, Modellbezeichnung, AnschaffungsDatum);
+			textMid.setText("Engeraet hinzugefuegt!");
 
-			try {
-				String befehl = "INSERT INTO ENDGERAETE VALUES(?,?,?)";
-
-				PreparedStatement stmn = db.getSQLConnection().prepareStatement(befehl);
-				stmn.setString(3, AnschaffungsDatum);
-				stmn.setString(2, Modellbezeichnung);
-				stmn.setInt(1, InventarisierungsNummer);
-				stmn.execute();
-				stmn.close();
-				textMid.setText("Engeraet hinzugefuegt!");
-
-				end1.clear();
-				end2.clear();
-				end3.clear();
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			end1.clear();
+			end2.clear();
+			end3.clear();
 			}
 		}
+	}
+	
+	public void modellbezeichnungHinzufuegen(){
+		if (mod1.getText().isEmpty() | mod2.getText().isEmpty()) {
+			textMod.setText("*BITTE ALLE FELDER AUSFUELLEN!!!");
+		} else {			
+			String Modellbezeichnung = mod1.getText();
+			String EndgeraetName = mod2.getText();
+
+			db.modellbezeichnungAdd(Modellbezeichnung, EndgeraetName);
+			textMod.setText("Engeraet hinzugefuegt!");
+
+			mod1.clear();
+			mod2.clear();
+			}		
+	}
+	
+	
+	public void modellbezClose(){
+		Stage appStage = (Stage) mod1.getScene().getWindow();
+		appStage.close();
+		
 	}
 }

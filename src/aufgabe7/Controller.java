@@ -1,6 +1,7 @@
 package aufgabe7;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -125,7 +126,9 @@ public class Controller {
 		} else {
 			// Falls alle Felder ausgefuellt sind werden beide Inhalte der
 			// Textfenster gegettet
+
 			db.connect(usernameText.getText(), passwordText.getText());
+
 			if (db.getConnection()) {
 				try {
 					// Bei erfolgreichem Login wird das naechste Fenster
@@ -140,6 +143,7 @@ public class Controller {
 					e.printStackTrace();
 				}
 			}
+			System.out.println("Keine verbindung hergestellt");
 		}
 	}
 

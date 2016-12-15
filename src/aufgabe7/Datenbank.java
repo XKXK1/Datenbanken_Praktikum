@@ -31,7 +31,7 @@ public class Datenbank {
 					username, password);
 			isConnected = true;
 		} catch (SQLException e) {
-			System.out.println("No connection");
+			
 			//e.printStackTrace();
 		}
 	}

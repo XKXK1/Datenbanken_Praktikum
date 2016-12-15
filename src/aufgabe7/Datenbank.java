@@ -31,8 +31,8 @@ public class Datenbank {
 					username, password);
 			isConnected = true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("No connection");
+			//e.printStackTrace();
 		}
 	}
 

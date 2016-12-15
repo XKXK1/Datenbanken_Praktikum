@@ -143,7 +143,6 @@ public class Controller {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Keine verbindung hergestellt");
 		}
 	}
 

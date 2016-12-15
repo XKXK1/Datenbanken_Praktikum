@@ -91,7 +91,7 @@ public class Controller {
 	public void changeTable(Table table) {
 		try {
 			tableFin = FXMLLoader.load(getClass().getResource("table.fxml"));
-			Scene scene = new Scene(tableFin, 650, 250);
+			Scene scene = new Scene(tableFin, 700, 250);
 			stage.setTitle("Datenbank TechnikVerleih - TableView");
 			stage.setScene(scene);
 			stage.show();

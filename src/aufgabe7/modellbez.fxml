@@ -9,13 +9,13 @@
 
 <Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="600.0" stylesheets="@../../lib/buttonStyle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe7.Controller">
    <children>
-      <HBox layoutX="139.0" layoutY="104.0" prefHeight="25.0" prefWidth="322.0" spacing="10.0">
+      <HBox layoutX="139.0" layoutY="115.0" prefHeight="25.0" prefWidth="322.0" spacing="10.0">
          <children>
             <TextField fx:id="mod1" promptText="Modelbez." />
             <TextField fx:id="mod2" promptText="Endgeraet Name" />
          </children>
       </HBox>
-      <Button fx:id="buttonHinzufuegen" layoutX="175.0" layoutY="151.0" mnemonicParsing="false" onAction="#modellbezeichnungHinzufuegen" text="HINZUFUEGEN" textFill="WHITE">
+      <Button fx:id="buttonHinzufuegen" layoutX="172.0" layoutY="161.0" mnemonicParsing="false" onAction="#modellbezeichnungHinzufuegen" text="HINZUFUEGEN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -25,11 +25,13 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Button layoutX="327.0" layoutY="151.0" mnemonicParsing="false" onAction="#modellbezClose" text="Abbrechen" textFill="WHITE">
+      <Button layoutX="324.0" layoutY="161.0" mnemonicParsing="false" onAction="#modellbezClose" text="Abbrechen" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Text fx:id="textMod" fill="WHITE" layoutX="29.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="139.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modellbezeichnung" />
+      <Text fill="WHITE" layoutX="300.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endgeraet Name" />
    </children>
 </Pane>

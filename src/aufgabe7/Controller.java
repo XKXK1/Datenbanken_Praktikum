@@ -142,6 +142,8 @@ public class Controller {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			} else {
+				fehlerText.setText("NO CONNECTION \nevtl. Passwort oder \nUsername Falsch");
 			}
 		}
 	}

@@ -42,7 +42,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="209.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENDGERAET HINZUFUEGEN" textAlignment="CENTER">
+      <Text fill="WHITE" layoutX="209.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENDGERAET HINZUFUEGEN" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -62,5 +62,8 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
+      <Text fill="WHITE" layoutX="77.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="InventarisierungsNR" />
+      <Text fill="WHITE" layoutX="230.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modellbezeichnung" />
+      <Text fill="WHITE" layoutX="383.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AnschaffungsDatum" />
    </children>
 </Pane>

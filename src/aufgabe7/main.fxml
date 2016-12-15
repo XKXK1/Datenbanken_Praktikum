@@ -10,14 +10,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7B68F9;" stylesheets="@../../lib/buttonStyle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe7.Controller">
+<Pane id="pane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../lib/buttonStyle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe7.Controller">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../lib/datenbank-1.jpg" />
+            <Image url="@../../lib/datenbank-1.png" />
          </image>
       </ImageView>
-      <HBox layoutX="101.0" layoutY="273.0" prefHeight="113.0" prefWidth="493.0" spacing="10.0">
+      <Text fill="WHITE" layoutX="115.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diese Datenbank dient zur Einsicht von Ausleihern, Endgeraeten &#10;und Modellbezeichnung der Geraete des Technikverleihs. Zusaetlzlich &#10;koennen noch alle Ausleiher der OE Solarenergie angezeigt werden." textAlignment="CENTER" />
+      <HBox layoutX="107.0" layoutY="330.0" prefHeight="113.0" prefWidth="493.0" spacing="10.0">
          <children>
             <TextField fx:id="usernameText" promptText="Username" />
             <PasswordField fx:id="passwordText" prefHeight="26.0" prefWidth="149.0" promptText="Password" />

@@ -7,7 +7,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class DatenbankGui extends Application {
-	
+	/**
+	 * Gui Oberflaeche wird mit erstem Fenster geoeffnet
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -15,14 +17,12 @@ public class DatenbankGui extends Application {
 
 		Scene scene = new Scene(root, 600, 400);
 		
-
 		primaryStage.setTitle("Datenbank TechnikVerleih");
 		primaryStage.setScene(scene);
-		
 		primaryStage.show();
 
 
-		//primaryStage.setResizable(false);
+		primaryStage.setResizable(false);
 	}
 
 	public static void main(String[] args) {

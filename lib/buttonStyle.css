@@ -1,8 +1,12 @@
+#pane {
+    -fx-background-color: #315e52;
+}
+
 .button {
 	-fx-background-color: transparent;
 	-fx-border-color: white;
 	-fx-text-fill: white;
-	-fx-opacity: 30;
+	-fx-opacity: 30.0;
 
 }
 
@@ -17,5 +21,7 @@
 	-fx-opacity: 0.8;
 
 }
+
+
 
 

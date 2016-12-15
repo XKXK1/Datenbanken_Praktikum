@@ -92,7 +92,7 @@ public class Datenbank {
 	 * 
 	 * @return
 	 */
-	public Table showAllEndgeraete() {
+	public Table showAllModellbezeichnung() {
 		try {
 			Table table = new Table();
 			// Erstellen eines SQL Statements
@@ -203,6 +203,44 @@ public class Datenbank {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Eine Tabelle mit allen Modellbezeichnungen der DatenbankTabelle "Modellbezeichnungen" wird
+	 * erstellt
+	 * 
+	 * @return
+	 */
+	public Table showAllEndgeraete(){
+		try {
+			Table table = new Table();
+			// Erstellen eines SQL Statements
+			Statement myStmt;
+			myStmt = dbConnection.createStatement();
+			// Definieren des SQL Statements
+			ResultSet myRs = myStmt.executeQuery("select * from endgeraete");
+			// Fuer Jede gefundene Spalte wird eine Spalte in der Tabelle
+			// angelegt
+			for (int i = 0; i < myRs.getMetaData().getColumnCount(); i++) {
+				table.addColumn(myRs.getMetaData().getColumnLabel(i + 1));
+			}
+			int index = 0;
+			// Jede Reihe der Tabelle wird befuellt
+			while (myRs.next()) {
+				table.addRow();
+				table.addColumnData(index, myRs.getString(1), myRs);
+				table.addColumnData(index, myRs.getString(2), myRs);
+				table.addColumnData(index, myRs.getString(3), myRs);
+				index++;
+			}
+			return table;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+		
 	}
 
 	/**

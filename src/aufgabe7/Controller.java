@@ -73,6 +73,14 @@ public class Controller {
 		Table table = db.showAllEndgeraete();
 		changeTable(table);
 	}
+	
+	/**
+	 * Bei Click zeige alle Endgeraete
+	 */
+	public void showAllModellbezeichnungClicked() {
+		Table table = db.showAllModellbezeichnung();
+		changeTable(table);
+	}
 
 	/**
 	 * Ein neues Fenster "table.fxml" wird erstellt um eine als argument

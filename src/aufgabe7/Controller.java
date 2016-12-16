@@ -1,7 +1,6 @@
 package aufgabe7;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -155,6 +154,7 @@ public class Controller {
 			}
 		}
 	}
+	
 
 	/**
 	 * Bei Click wird der User ausgelogged
